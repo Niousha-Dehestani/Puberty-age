@@ -153,13 +153,7 @@ for gender in genders:
         # mycleandf_puberty = mycleandf_puberty.set_index("ID-wave")
 
         mycleandf_puberty.to_csv(
-            r'/Users/nioushadehestanikolagar/Documents/ABCD/PhD_project/puberty_measure/data/mycleandf_pds_age_regressgap_without_{}.csv'.format(
+            r'directory/mycleandf_pds_age_regressgap_without_{}.csv'.format(
                 gender),
             index=True, header=True)
-
-
-
-
-
-        plt.show()
 
