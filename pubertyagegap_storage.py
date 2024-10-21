@@ -26,8 +26,8 @@ hormones = {"female": ["tst", "dhea"],
 
 # Make a dictonary from each sub items of PDS for each gender
 pds = {
-    "female": ['growth_spurt', "body_hair", 'skin_change', 'breast_develop', 'menarche'],
-    "male": ['growth_spurt', "body_hair", 'voice_deep', 'face_hair', 'skin_change',]
+    "female": ['growth_spurt', "body_hair", 'skin_change', 'breast_develop', 'menarche', Hormones],
+    "male": ['growth_spurt', "body_hair", 'voice_deep', 'face_hair', 'skin_change', Hormones]
 }
 
 # Define a function to remove regression to the mean
@@ -160,132 +160,6 @@ for gender in genders:
 
 
 
-# plot
-formalnames = {
-    "pubertyage": "Combined puberty age",
-    "pds_age": "Physical puberty age",
-    "hormone_age": "Hormonal puberty age",
-    "pubertyage_abcd_gap_rtm": "Combined puberty age rtm",
-    "pds_age_abcd_gap_rtm": "Physical puberty age rtm",
-    "hormone_age_abcd_gap_rtm": "Hormonal puberty age rtm",
-    "male": "Males",
-    "female": "Females",
-}
-#
-# for gender in genders:
-#     for predictor in predictors:
-#         mycleandf_puberty = pd.read_csv(
-#             '/Users/nioushadehestanikolagar/Documents/ABCD/PhD_project/puberty_measure/data/mycleandf_{}_gap_abcd_{}.csv'.format(
-#                 predictor, gender))
-#
-#         # plotcl
-#         fig, ax = plt.subplots(figsize=(10,10))
-#         sns.scatterplot(
-#             data=mycleandf_puberty, x="age", y="{}_abcd".format(predictor),
-#             hue="{}_abcd_gap_rtm".format(predictor), legend=False,
-#             hue_norm=mcolors.TwoSlopeNorm(vcenter=0, vmin=-.4, vmax=.4),
-#             # cmap=cm.coolwarm,
-#             # palette=sns.diverging_palette(240, 10, n=256)
-#             palette='coolwarm',
-#             ax=ax,
-#             s=100,
-#             alpha=0.6,
-#             linewidth=0.1,
-#         )
-#
-#         sns.regplot(data=mycleandf_puberty, x="age", y="{}_abcd".format(predictor), scatter=False, color='#080326',
-#                     ax=ax)
-#         ax.set_title('{}'.format(formalnames[gender]), fontsize=30)
-#         ax.set_ylabel('{}'.format(formalnames[predictor]), fontsize=30)
-#         ax.set_xlabel('Chronological age', fontsize=30)
-#         ax.set_xlim((8.8, 14.2))
-#         ax.set_ylim((8.8, 14.2))
-#         ax.tick_params(axis='both', labelsize=20)
-#
-#
-#         plt.savefig(
-#             '/Users/nioushadehestanikolagar/Documents/ABCD'
-#             '/{}_{}_plot.png'.format(predictor, gender),
-#             dpi=800,
-#         )
-#         plt.show()
 
-# ##############
-# for gender in genders:
-#     for predictor in predictors:
-#         mycleandf_puberty = pd.read_csv(
-#             '/Users/nioushadehestanikolagar/Documents/ABCD/PhD_project/puberty_measure/data/mycleandf_{}_gap_abcd_{}.csv'.format(
-#                 predictor, gender))
-#
-#         # plotcl
-#         fig, ax = plt.subplots(figsize=(10,10))
-#         sns.scatterplot(
-#             data=mycleandf_puberty, x="age", y="{}_gap_abcd".format(predictor),
-#             hue="{}_abcd_gap_rtm".format(predictor), legend=False,
-#             hue_norm=mcolors.TwoSlopeNorm(vcenter=0, vmin=-.4, vmax=.4),
-#             # cmap=cm.coolwarm,
-#             # palette=sns.diverging_palette(240, 10, n=256)
-#             palette='coolwarm',
-#             ax=ax,
-#             s=100,
-#             alpha=0.6,
-#             linewidth=0.1,
-#         )
-#
-#         sns.regplot(data=mycleandf_puberty, x="age", y="{}_gap_abcd".format(predictor), scatter=False, color='#080326',
-#                     ax=ax)
-#         ax.set_title('{}'.format(formalnames[gender]), fontsize=30)
-#         ax.set_ylabel('{} gap before RTM'.format(formalnames[predictor]), fontsize=30)
-#         ax.set_xlabel('Chronological age', fontsize=30)
-#         ax.set_xlim((8.8, 14.2))
-#         ax.set_ylim((-3, 3))
-#         ax.tick_params(axis='both', labelsize=20)
-#
-#
-#         plt.savefig(
-#             '/Users/nioushadehestanikolagar/Documents/ABCD'
-#             '/{}_{}_plot.png'.format(predictor, gender),
-#             dpi=800,
-#         )
-#         plt.show()
-
-
-########
-for gender in genders:
-    for predictor in predictors:
-        mycleandf_puberty = pd.read_csv(
-            '/Users/nioushadehestanikolagar/Documents/ABCD/PhD_project/puberty_measure/data/mycleandf_{}_gap_abcd_{}.csv'.format(
-                predictor, gender))
-
-        # plotcl
-        fig, ax = plt.subplots(figsize=(10,10))
-        sns.scatterplot(
-            data=mycleandf_puberty, x="age", y="{}_abcd_gap_rtm".format(predictor),
-            hue="{}_abcd_gap_rtm".format(predictor), legend=False,
-            hue_norm=mcolors.TwoSlopeNorm(vcenter=0, vmin=-.4, vmax=.4),
-            # cmap=cm.coolwarm,
-            # palette=sns.diverging_palette(240, 10, n=256)
-            palette='coolwarm',
-            ax=ax,
-            s=100,
-            alpha=0.6,
-            linewidth=0.1,
-        )
-
-        sns.regplot(data=mycleandf_puberty, x="age", y="{}_abcd_gap_rtm".format(predictor), scatter=False, color='#080326',
-                    ax=ax)
-        ax.set_title('{}'.format(formalnames[gender]), fontsize=30)
-        ax.set_ylabel('{} gap After RTM'.format(formalnames[predictor]), fontsize=30)
-        ax.set_xlabel('Chronological age', fontsize=30)
-        ax.set_xlim((8.8, 14.2))
-        ax.set_ylim((-2, 2))
-        ax.tick_params(axis='both', labelsize=20)
-
-
-        plt.savefig(
-            '/Users/nioushadehestanikolagar/Documents/ABCD'
-            '/{}_{}_plot.png'.format(predictor, gender),
-            dpi=800,
-        )
         plt.show()
 
