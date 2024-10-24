@@ -21,8 +21,8 @@ import matplotlib.colors as mcolors
 genders = ["female", "male"]
 
 # Make a dictionary from hormones for each gender
-hormones = {"female": ["tst", "dhea"],
-            "male": ["tst","dhea"]}
+hormones = {"female": ["Hormones items", "PDS items"],
+            "male": ["Hormones items", "PDS items"]}
 
 # Make a dictonary from each sub items of PDS for each gender
 pds = {
