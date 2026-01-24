@@ -10,8 +10,8 @@ This repository hosts the scripts and code used for our manuscript, *"“Puberty
 The repository is organized into distinct analytical steps, each corresponding to a specific phase in the computational pipeline. Below is a summary of what each step accomplishes:
 
 ### 1. Data Cleaning and Preprocessing (`code/01_data_cleaning`)
-* Process and clean both Pubertal Development Scale (PDS) questionnaire data and biospecimen hormone data from healthy participants in the ABCD Study dataset.
-* Handle missing values and prepare the multimodal dataset for downstream analysis.
+* Process and clean both Pubertal Development Scale (PDS) questionnaire data and biospecimen hormone data from participants in the ABCD Study dataset.
+* Handle missing values and prepare the dataset for downstream analysis.
 
 ### 2. Puberty Age Model Development (`code/02_model_development`)
 * **Data Splitting:** Randomly split the cleaned data into training and test sets to ensure model validation and prevent overfitting.
