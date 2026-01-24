@@ -18,3 +18,14 @@ The repository is organized into distinct analytical steps, each corresponding t
 * **Algorithm:** Implement Generalized Additive Models (GAMs) to calculate biological "Puberty Age".
 * **Stratification:** Models are fit separately for each sex to account for distinct male and female developmental trajectories.
 * **Metric Derivation:** Calculate the Puberty-Age-Gap (PAG) by subtracting chronological age from the model-predicted Puberty Age.
+
+## Citation
+
+If you use this repository, metric, or code in your research, please cite our manuscript:
+
+**Dehestani, N.**, Vijayakumar, N., Ball, G., Mansour L, S., Whittle, S., & Silk, T. J. (2024). “Puberty age gap”: new method of assessing pubertal timing and its association with mental health problems. *Molecular Psychiatry, 29*(2), 221-228.
+
+## Contact
+
+For questions regarding the methodology or code, please contact:
+**Niousha Dehestani** – [newsha.dehestani.95@gmail.com](mailto:newsha.dehestani.95@gmail.com)
