@@ -22,7 +22,7 @@ def create_id_wave_index(df: pd.DataFrame) -> pd.DataFrame:
 def get_medical_status(screen_path: Path) -> tuple[list, list]:
     """Identifies healthy and unhealthy participants based on medical conditions."""
     screen_df = pd.read_parquet(screen_path)
-    med_cols = [c for c in screen_df.columns if 'ab_p_screen__med_' in c and c <= 'ab_p_screen__med_017']
+    med_cols = [dx for dx in screen_df.columns if 'ab_p_screen__med_' in dx and dx <= 'ab_p_screen__med_017']
     screen_df = screen_df.set_index('participant_id')[med_cols]
     
     has_condition = (screen_df[med_cols] == '1').any(axis=1)
