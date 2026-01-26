@@ -1,7 +1,7 @@
 """
 Script: 02_run_models.py
 Description: Loops through male and female data to train Puberty GAM models 
-             using hormones and PDS to predict chronological age.
+             using ComBat-harmonized hormones and PDS to predict chronological age.
              Saves the final trained models AND scalers to the processed folder.
 """
 
@@ -12,9 +12,11 @@ import prediction
 
 # --- PATHS ---
 # UPDATE THIS PATH to your local ABCD data directory before running.
-# Do not upload the actual data files to GitHub.
-DATA_DIR = Path('../../data/processed')  
-INPUT_FILE = DATA_DIR / '01_final_cleaned_data_with_hormones.csv'
+# Data is kept separate from code for privacy and storage constraints.
+DATA_DIR = Path('../../data/processed')
+
+# Using the ComBat harmonized dataset
+INPUT_FILE = DATA_DIR / '01b_harmonized_data.csv'
 
 # Define genders to loop through (1 = Male, 2 = Female)
 genders = ["1", "2"]
@@ -26,10 +28,10 @@ hormones = {
     "1": ['tst_filter_rsi_hormone', 'dhea_filter_rsi_hormone']
 }
 
-# PDS Items (ABCD uses specific items for female/male to cover breast/menarche vs voice/facial hair)
+# PDS Items (ABCD uses 001, 002, 003 for both sexes to cover growth/hair/skin/voice/menarche)
 pds = {
     "2": ['ph_p_pds_001', 'ph_p_pds_002', 'ph_p_pds_003', 'ph_p_pds__f_002', 'ph_p_pds__f_001'],
-    "1": ['ph_p_pds_001', 'ph_p_pds_002', 'ph_p_pds_003', 'ph_p_pds__m_001', 'ph_p_pds__m_002']
+    "1": ['ph_p_pds_001', 'ph_p_pds_002', 'ph_p_pds_003', 'ph_p_pds__m_001','ph_p_pds__m_002']
 }
 
 # ----------------------------------------------------
@@ -62,6 +64,7 @@ if __name__ == "__main__":
             lams = np.logspace(-5, 5, 50)
 
             # --- RUN THE MODEL ---
+            # NOTE: We catch BOTH the model and the scaler to prevent data leakage in future tests
             model, scaler = prediction.run_predictions(
                 filename=INPUT_FILE, 
                 dataname=f'puberty_abcd_gender{gender}', 
