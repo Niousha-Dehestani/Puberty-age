@@ -1,10 +1,10 @@
 """
 Script: 01_clean_data.py
-Description: Integrates ABCD 6.0 demographics, PDS, CBCL, and Hormone data. 
+Description: Integrates ABCD demographics, PDS, CBCL, and Hormone data. 
              Calculates residualized hormones (TST, DHEA) correcting for confounders.
              Stratifies participants into TD (Healthy) and ATD (Unhealthy).
              
-Usage: python 01_clean_data.py --data_dir /path/to/abcd6.0/phenotype --output_dir ./processed
+Usage: python 01_clean_data.py --data_dir /path/to/abcd/phenotype --output_dir ./processed
 Python Version: 3.10+
 """
 
