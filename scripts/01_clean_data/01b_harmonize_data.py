@@ -11,7 +11,7 @@ from neuroCombat import neuroCombat
 from pathlib import Path
 
 # --- PATHS (Your Local Mac Path) ---
-DATA_DIR = Path('/Users/nioushad/Documents/abcd6.0/processed')
+DATA_DIR = Path('/Users/dir/Documents/abcd6.0/processed')
 INPUT_FILE = DATA_DIR / '01_final_cleaned_data_with_hormones.csv'
 OUTPUT_FILE = DATA_DIR / '01b_harmonized_data.csv'
 
